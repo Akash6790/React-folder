@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+.akash{
+  background-color: orange;
+  color : white;
+  align-items: center;
+  justify-content: center;
+  padding-left: 100px;
+}
