@@ -13,7 +13,7 @@ export default function Textforms(props) {
     }
     const handleclearclick = () => {
         console.log("button was clicked" + text);
-        let newtext = " ";
+        let newtext = "";
         settext(newtext)
     }
     const sentenceCase = () => {
@@ -46,7 +46,7 @@ export default function Textforms(props) {
                 <h3>Preview</h3>
                 <p>{0.08 * text.split(" ").length} Minutes to Read</p>
                 <div className="container  border border-primary p-3">
-                    <p>{text}</p>
+                    <p>{text.length>0?text :"enter the text to preview in the above box"}</p>
                 </div>
 
             </div>
