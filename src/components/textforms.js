@@ -1,20 +1,24 @@
 import React, { useState } from 'react'
 
+
 export default function Textforms(props) {
     const handleupclick = () => {
         console.log("button was clicked" + text);
         let newtext = text.toUpperCase();
-        settext(newtext)
+        settext(newtext);
+        props.showalert("converted to uppercase", "success")
     }
     const handleloclick = () => {
         console.log("button was clicked" + text);
         let newtext = text.toLowerCase();
         settext(newtext)
+        props.showalert("converted to lowercase", "success")
     }
     const handleclearclick = () => {
         console.log("button was clicked" + text);
         let newtext = "";
-        settext(newtext)
+        settext(newtext);
+        props.showalert("cleared sucessfully", "success")
     }
     const sentenceCase = () => {
         let sentences = text.split(/(?<=\.)\s+/);
@@ -22,6 +26,7 @@ export default function Textforms(props) {
             .map(sentence => sentence.charAt(0).toUpperCase() + sentence.slice(1))
             .join("\n ");
         settext(newText);
+        props.showalert("converted to sentenceCase", "success")
     };
     const handleonchange = (event) => {
         console.log("on change")
@@ -40,7 +45,7 @@ export default function Textforms(props) {
                 <button className="btn btn-primary mx-2" onClick={sentenceCase} type="submit">Convert to sentenceCase</button>
                 <button className="btn btn-primary" onClick={handleclearclick} type="submit">Clear Text</button>
             </div>
-            <div className="container ">
+            <div className='container'>
                 <h2>Your summary</h2>
                 <p>{text.split(" ").length} words, {text.length} characters</p>
                 <h3>Preview</h3>
@@ -48,7 +53,6 @@ export default function Textforms(props) {
                 <div className="container  border border-primary p-3">
                     <p>{text.length>0?text :"enter the text to preview in the above box"}</p>
                 </div>
-
             </div>
         </>
     )
