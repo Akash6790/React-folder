@@ -1,5 +1,6 @@
 import React from 'react'
 import { propTypes } from 'react-bootstrap/esm/Image'
+import { Link } from 'react-router-dom'
 
 export default function NavBar(props) {
   return (
@@ -14,10 +15,10 @@ export default function NavBar(props) {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item active">
-                <a className={`nav-link  text-${props.mode === 'light'?'dark':'light'}`} href="/">Home <span className="sr-only">(current)</span></a>
+                <Link className={`nav-link  text-${props.mode === 'light'?'dark':'light'}`} to="/">Home <span className="sr-only">(current)</span></Link>
               </li>
               <li className="nav-item">
-                <a className={`nav-link  text-${props.mode === 'light'?'dark':'light'}`} href="/">about</a>
+                <Link className={`nav-link  text-${props.mode === 'light'?'dark':'light'}`} to="/about">about</Link>
               </li>
 
             </ul>
@@ -27,8 +28,12 @@ export default function NavBar(props) {
             </form>
             <div className={`form-check form-switch px-5 text-${props.mode === 'light'?'dark':'light'}`}>
               <input className="form-check-input " onClick={props.enable} type="checkbox" role="switch" id="switchCheckDefault" />
-              <label className="form-check-label " htmlFor="switchCheckDefault">Enable Dark mode</label>
+              <label className="form-check-label " htmlFor="switchCheckDefault">  {props.mode === 'light' ? ' Dark ' : ' Light'}</label>
             </div>
+            <div className={`form-check form-switch px-5 text-${props.mode === 'light'?'yellow':'blue'}`}>
+              <input className="form-check-input " onClick={props.enablemode} type="checkbox" role="switch" id="switchCheckDefault" />
+              <label className="form-check-label " htmlFor="switchCheckDefault">{props.mode == 'blue' ? 'yellow':'blue'} </label>
+             </div>
           </div>
         </nav>
       </>

@@ -6,19 +6,19 @@ export default function Textforms(props) {
         console.log("button was clicked" + text);
         let newtext = text.toUpperCase();
         settext(newtext);
-        props.showalert("converted to uppercase", "success")
+        props.showAlert("converted to uppercase", "success")
     }
     const handleloclick = () => {
         console.log("button was clicked" + text);
         let newtext = text.toLowerCase();
         settext(newtext)
-        props.showalert("converted to lowercase", "success")
+        props.showAlert("converted to lowercase", "success")
     }
     const handleclearclick = () => {
         console.log("button was clicked" + text);
         let newtext = "";
         settext(newtext);
-        props.showalert("cleared sucessfully", "success")
+        props.showAlert("cleared sucessfully", "success")
     }
     const sentenceCase = () => {
         let sentences = text.split(/(?<=\.)\s+/);
@@ -26,7 +26,7 @@ export default function Textforms(props) {
             .map(sentence => sentence.charAt(0).toUpperCase() + sentence.slice(1))
             .join("\n ");
         settext(newText);
-        props.showalert("converted to sentenceCase", "success")
+        props.showAlert("converted to sentenceCase", "success")
     };
     const handleonchange = (event) => {
         console.log("on change")
